@@ -41,4 +41,25 @@ public class Board {
         return displyedGrid.toString();
     }
 
+    public boolean draw(Position position, Draw draw) {
+        if (isValidePlay(position) && draw != Draw.Empty) {
+            this.grid[position.getX()][position.getY()] = draw;
+            numberEmptyCell--;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isValidePlay(Position position) {
+        return isInGrid(position) && isEmpty(position);
+    }
+
+    private boolean isInGrid(Position position) {
+        return position.getX() >= 0 && position.getY() >= 0 && position.getY() < gridHeight && position.getX() < gridWidth;
+    }
+
+    public boolean isEmpty(Position position) {
+        return this.grid[position.getX()][position.getY()] == Draw.Empty;
+    }
+
 }
