@@ -39,12 +39,12 @@ public class Round {
 
     private void playNextPlayer() {
         if (getNextPlayer() == 1) {
-            Position position = player1.Play(this.board);
+            Position position = player1.play(this.board);
             this.board.draw(position, Draw.X);
             setNextPlayer(2);
             return;
         } else if (getNextPlayer() == 2) {
-            Position position = player2.Play(this.board);
+            Position position = player2.play(this.board);
             this.board.draw(position, Draw.O);
             setNextPlayer(1);
             return;

@@ -1,5 +1,5 @@
 package com;
 
 public interface Player {
-    Position Play(Board board);
+    Position play(Board board);
 }

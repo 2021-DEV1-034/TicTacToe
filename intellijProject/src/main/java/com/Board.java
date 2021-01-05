@@ -3,8 +3,8 @@ package com;
 import java.util.Arrays;
 
 public class Board {
-    public final int gridHeight = 3;
-    public final int gridWidth = 3;
+    public static final int gridHeight = 3;
+    public static final int gridWidth = 3;
     private int numberEmptyCell;
     private Draw[][] grid;
 
@@ -38,6 +38,7 @@ public class Board {
             displyedGrid.append("\n");
             displyedGrid.append(" -----\n");
         }
+        System.out.println( displyedGrid.toString());
         return displyedGrid.toString();
     }
 
@@ -128,5 +129,7 @@ public class Board {
         return (this.grid[0][0] == draw && this.grid[1][1] == draw && this.grid[2][2] == draw) ||
                 (this.grid[2][0] == draw && this.grid[1][1] == draw && this.grid[0][2] == draw);
     }
-
+    public static Board getInstance(){
+        return new Board();
+    }
 }
