@@ -83,6 +83,17 @@ public class Board {
                         hasRowDiagonallyWinner(Draw.O);
 
     }
+    public Draw getWinner(){
+        if(hasRowVerticallyWinner(Draw.O) || hasRowHorizontallyWinner(Draw.O) ||hasRowDiagonallyWinner(Draw.O)){
+            return Draw.O;
+        }
+        else if(hasRowVerticallyWinner(Draw.X) || hasRowHorizontallyWinner(Draw.X) ||hasRowDiagonallyWinner(Draw.X)){
+            return Draw.X;
+        }
+        else{
+            return null;
+        }
+    }
 
     private boolean hasRowVerticallyWinner(Draw draw) {
         int column = 0;

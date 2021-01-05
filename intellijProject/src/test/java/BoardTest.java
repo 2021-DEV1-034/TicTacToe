@@ -208,4 +208,48 @@ public class BoardTest {
         //Assert
         assertEquals(true , result);
     }
+
+    @Test
+    public void getWinner_X_WhenWinnerXDiagonal(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.X);
+        board.draw(new Position(1,1), Draw.X);
+        board.draw(new Position(2,2), Draw.X);
+
+        // Act
+        Draw result = board.getWinner();
+
+        //Assert
+        assertEquals(Draw.X , result);
+    }
+
+    @Test
+    public void getWinner_O_WhenWinnerODiagonal(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.O);
+        board.draw(new Position(1,1), Draw.O);
+        board.draw(new Position(2,2), Draw.O);
+
+        // Act
+        Draw result = board.getWinner();
+
+        //Assert
+        assertEquals(Draw.O , result);
+    }
+
+
+    @Test
+    public void getWinner_Null_WhenNoWinner(){
+        // Arrange
+        Board board = new Board();
+
+
+        // Act
+        Draw result = board.getWinner();
+
+        //Assert
+        assertEquals(null , result);
+    }
 }
