@@ -20,7 +20,7 @@ The rules are described below :
 ## Build jar
 
 ```
-cd \intellijProject
+cd intellijProject
 mvn package 
 
 
