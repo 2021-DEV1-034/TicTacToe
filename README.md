@@ -16,3 +16,15 @@ The rules are described below :
 	- All nine squares are filled.
 - If a player is able to draw three X’s or three O’s in a row, that player wins.
 - If all nine squares are filled and neither player has three in a row, the game is a draw.
+
+## Build jar
+
+```
+cd \intellijProject
+mvn package 
+
+
+cd target
+java -jar TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+```
