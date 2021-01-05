@@ -62,4 +62,60 @@ public class Board {
         return this.grid[position.getX()][position.getY()] == Draw.Empty;
     }
 
+    public boolean isCompletlyFilled() {
+        for (Draw[] row : this.grid) {
+            for (Draw cell : row) {
+                if (cell == Draw.Empty) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean hasWinner() {
+        return
+                hasRowVerticallyWinner(Draw.O) ||
+                        hasRowVerticallyWinner(Draw.X) ||
+                        hasRowHorizontallyWinner(Draw.O) ||
+                        hasRowHorizontallyWinner(Draw.X) ||
+                        hasRowDiagonallyWinner(Draw.X) ||
+                        hasRowDiagonallyWinner(Draw.O);
+
+    }
+
+    private boolean hasRowVerticallyWinner(Draw draw) {
+        int column = 0;
+        while (column < gridWidth) {
+            int row = 0;
+            boolean rowOk = true;
+            while (row < gridHeight) {
+                if (this.grid[row][column] != draw) {
+                    rowOk = false;
+                }
+                row++;
+            }
+            if (rowOk) {
+                return true;
+            }
+            column++;
+
+        }
+        return false;
+    }
+
+    private boolean hasRowHorizontallyWinner(Draw draw) {
+        for (Draw[] row : this.grid) {
+            if (row[0] == draw && row[1] == draw && row[2] == draw) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasRowDiagonallyWinner(Draw draw) {
+        return (this.grid[0][0] == draw && this.grid[1][1] == draw && this.grid[2][2] == draw) ||
+                (this.grid[2][0] == draw && this.grid[1][1] == draw && this.grid[0][2] == draw);
+    }
+
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoardTest {
-    
+
     @Test
     public void getNumberEmptyCell_9_WhenInitBoard(){
         // Arrange
@@ -100,5 +100,112 @@ public class BoardTest {
         //Assert
         assertEquals(false , positionCenterResult);
 
+    }
+
+    @Test
+    public void isCompletlyFilled_No_WhenInitBoard(){
+        // Arrange
+        Board board = new Board();
+
+        // Act
+        boolean result = board.isCompletlyFilled();
+
+        //Assert
+        assertEquals(false , result);
+    }
+
+
+    @Test
+    public void isCompletlyFilled_No_WhenDrawX(){
+        // Arrange
+        Board board = new Board();
+        Position positionCenter = new Position(1,1);
+        boolean positionCenterResult = board.draw(positionCenter, Draw.X);
+
+        // Act
+        boolean result = board.isCompletlyFilled();
+
+        //Assert
+        assertEquals(false , result);
+    }
+
+
+    @Test
+    public void isCompletlyFilled_Yes_WhenDrawAllX(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.X);
+        board.draw(new Position(0,1), Draw.X);
+        board.draw(new Position(0,2), Draw.X);
+        board.draw(new Position(1,0), Draw.X);
+        board.draw(new Position(1,1), Draw.X);
+        board.draw(new Position(1,2), Draw.X);
+        board.draw(new Position(2,0), Draw.X);
+        board.draw(new Position(2,1), Draw.X);
+        board.draw(new Position(2,2), Draw.X);
+
+        // Act
+        boolean result = board.isCompletlyFilled();
+
+        //Assert
+        assertEquals(true , result);
+    }
+
+    @Test
+    public void hasWinner_No_WhenInitBoard(){
+        // Arrange
+        Board board = new Board();
+
+        // Act
+        boolean result = board.hasWinner();
+
+        //Assert
+        assertEquals(false , result);
+    }
+
+    @Test
+    public void hasWinner_Yes_WhenWinnerXHorizontal(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.X);
+        board.draw(new Position(1,0), Draw.X);
+        board.draw(new Position(2,0), Draw.X);
+
+        // Act
+        boolean result = board.hasWinner();
+
+        //Assert
+        assertEquals(true , result);
+    }
+
+
+    @Test
+    public void hasWinner_Yes_WhenWinnerOVertical(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.O);
+        board.draw(new Position(0,1), Draw.O);
+        board.draw(new Position(0,2), Draw.O);
+
+        // Act
+        boolean result = board.hasWinner();
+
+        //Assert
+        assertEquals(true , result);
+    }
+
+    @Test
+    public void hasWinner_Yes_WhenWinnerODiagonal(){
+        // Arrange
+        Board board = new Board();
+        board.draw(new Position(0,0), Draw.O);
+        board.draw(new Position(1,1), Draw.O);
+        board.draw(new Position(2,2), Draw.O);
+
+        // Act
+        boolean result = board.hasWinner();
+
+        //Assert
+        assertEquals(true , result);
     }
 }
