@@ -38,7 +38,7 @@ public class Board {
             displyedGrid.append("\n");
             displyedGrid.append(" -----\n");
         }
-        System.out.println( displyedGrid.toString());
+        System.out.println(displyedGrid.toString());
         return displyedGrid.toString();
     }
 
@@ -84,14 +84,13 @@ public class Board {
                         hasRowDiagonallyWinner(Draw.O);
 
     }
-    public Draw getWinner(){
-        if(hasRowVerticallyWinner(Draw.O) || hasRowHorizontallyWinner(Draw.O) ||hasRowDiagonallyWinner(Draw.O)){
+
+    public Draw getWinner() {
+        if (hasRowVerticallyWinner(Draw.O) || hasRowHorizontallyWinner(Draw.O) || hasRowDiagonallyWinner(Draw.O)) {
             return Draw.O;
-        }
-        else if(hasRowVerticallyWinner(Draw.X) || hasRowHorizontallyWinner(Draw.X) ||hasRowDiagonallyWinner(Draw.X)){
+        } else if (hasRowVerticallyWinner(Draw.X) || hasRowHorizontallyWinner(Draw.X) || hasRowDiagonallyWinner(Draw.X)) {
             return Draw.X;
-        }
-        else{
+        } else {
             return null;
         }
     }
@@ -129,7 +128,8 @@ public class Board {
         return (this.grid[0][0] == draw && this.grid[1][1] == draw && this.grid[2][2] == draw) ||
                 (this.grid[2][0] == draw && this.grid[1][1] == draw && this.grid[0][2] == draw);
     }
-    public static Board getInstance(){
+
+    public static Board getInstance() {
         return new Board();
     }
 }

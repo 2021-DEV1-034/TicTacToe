@@ -10,15 +10,15 @@ public class Game {
     private Player player1;
     private Player player2;
     private Board board;
-
     private ArrayList<Round> rounds;
 
-    public Game(Player player1, Player player2,Board board) {
+    public Game(Player player1, Player player2, Board board) {
         this.player1 = player1;
         this.player2 = player2;
         this.board = board;
         this.rounds = new ArrayList<Round>();
     }
+
     public void startGame() throws IOException {
         welcomeDisplay();
         do {
@@ -42,7 +42,7 @@ public class Game {
     }
 
     public void newRound() {
-        Round round = new Round(player1, player2,Board.getInstance());
+        Round round = new Round(player1, player2, Board.getInstance());
         this.rounds.add(round);
         round.startRound();
     }
@@ -72,7 +72,6 @@ public class Game {
                 player2Score++;
             }
         }
-
         System.out.println(String.format("Score :  %d/%d", player1Score, player2Score));
     }
 }

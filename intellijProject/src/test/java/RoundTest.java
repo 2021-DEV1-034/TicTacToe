@@ -63,7 +63,6 @@ public class RoundTest {
         Board board = Mockito.mock(Board.class);
         Player player1 = Mockito.mock(Player.class);
         Player player2 = Mockito.mock(Player.class);
-
         Round round = new Round(player1,player2,board);
 
         // Act
@@ -72,5 +71,4 @@ public class RoundTest {
         // Assert
         assertEquals(1, result);
     }
-
 }

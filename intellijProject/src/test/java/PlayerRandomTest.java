@@ -11,14 +11,13 @@ import static org.mockito.Matchers.any;
 
 public class PlayerRandomTest {
 
-
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 
     @Test
-    public void play_ValidePosition_WhenBoardEmpty(){
+    public void play_ValidePosition_WhenBoardEmpty() {
         // Arrange
         Board board = Mockito.mock(Board.class);
         Mockito.when(board.isEmpty(any(Position.class))).thenReturn(true);
@@ -30,9 +29,8 @@ public class PlayerRandomTest {
         Position result = playerRandom.play(board);
 
         // Assert
-        assertTrue( result.getX()<= 2 && result.getX()>=0);
-        assertTrue( result.getY()<= 2 && result.getY()>=0);
+        assertTrue(result.getX() <= 2 && result.getX() >= 0);
+        assertTrue(result.getY() <= 2 && result.getY() >= 0);
 
     }
-
 }

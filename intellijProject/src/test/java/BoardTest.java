@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BoardTest {
 
     @Test
-    public void getNumberEmptyCell_9_WhenInitBoard(){
+    public void getNumberEmptyCell_9_WhenInitBoard() {
         // Arrange
         Board board = new Board();
 
@@ -71,7 +71,6 @@ public class BoardTest {
 
     }
 
-
     @Test
     public void draw_NotDraw_WhenPositionNotEmpty(){
         // Arrange
@@ -129,7 +128,6 @@ public class BoardTest {
         assertEquals(false , result);
     }
 
-
     @Test
     public void isCompletlyFilled_Yes_WhenDrawAllX(){
         // Arrange
@@ -177,7 +175,6 @@ public class BoardTest {
         //Assert
         assertEquals(true , result);
     }
-
 
     @Test
     public void hasWinner_Yes_WhenWinnerOVertical(){
@@ -239,12 +236,10 @@ public class BoardTest {
         assertEquals(Draw.O , result);
     }
 
-
     @Test
     public void getWinner_Null_WhenNoWinner(){
         // Arrange
         Board board = new Board();
-
 
         // Act
         Draw result = board.getWinner();
