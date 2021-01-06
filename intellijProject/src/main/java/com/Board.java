@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Component
+
 public class Board {
     public static final int gridHeight = 3;
     public static final int gridWidth = 3;
@@ -132,7 +132,4 @@ public class Board {
                 (this.grid[2][0] == draw && this.grid[1][1] == draw && this.grid[0][2] == draw);
     }
 
-    public static Board getInstance() {
-        return new Board();
-    }
 }
