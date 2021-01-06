@@ -1,7 +1,10 @@
 package com;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
+@Component
 public class Board {
     public static final int gridHeight = 3;
     public static final int gridWidth = 3;

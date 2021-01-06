@@ -1,10 +1,15 @@
 package com;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+@Component
 public class Game {
 
     private Player player1;
@@ -12,7 +17,7 @@ public class Game {
     private Board board;
     private ArrayList<Round> rounds;
 
-    public Game(Player player1, Player player2, Board board) {
+    public Game(@Qualifier("playerKeyBoard") Player player1, @Qualifier("playerRandom") Player player2, Board board) {
         this.player1 = player1;
         this.player2 = player2;
         this.board = board;

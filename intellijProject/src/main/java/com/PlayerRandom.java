@@ -1,10 +1,12 @@
 package com;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Random;
 
+@Component
 public class PlayerRandom implements Player {
 
-    @Override
     public Position play(Board board) {
         Random rand = new Random();
         int intRand = rand.nextInt(board.getNumberEmptyCell()) + 1;

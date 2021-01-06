@@ -1,12 +1,18 @@
 package com;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+@Component
 public class PlayerKeyBoard implements Player {
 
-    public PlayerKeyBoard(String playerName) {
+
+    public PlayerKeyBoard(@Value("Player1") String playerName) {
         this.playerName = playerName;
     }
 
@@ -17,7 +23,6 @@ public class PlayerKeyBoard implements Player {
     }
 
 
-    @Override
     public Position play(Board board) {
 
         return askPosition(board);
